@@ -79,8 +79,8 @@ public class AeroplaneSeatingAlgorithm {
 								&& lastFilledWindow < noOfPassengers) {
 							arr[columnIncrement][j] = lastFilledWindow + 1;
 							lastFilledWindow += 1;
-						} else if ((seats[index][0] > 0 && (j == seats[index][0] - 1 || j == 0))
-								&& lastFilledAlise < noOfPassengers) {
+						} else if ((seats[index][0] > 0 && (j == seats[index][0] - 1 || j == 0)) && ((j != 0 || index > 0) && 
+								(seats.length - 1 != index || j != seats[index][0] - 1 )) && lastFilledAlise < noOfPassengers) {
 							arr[columnIncrement][j] = lastFilledAlise + 1;
 							lastFilledAlise += 1;
 						}
