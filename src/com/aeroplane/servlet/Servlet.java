@@ -41,15 +41,6 @@ public class Servlet extends HttpServlet {
 		int[][] givenInput = Arrays.stream(filterNumbersFromInput.split("(?<=\\G.{2})")).map(s -> (Arrays.stream(s.split("(?<=\\G.{1})")).mapToInt(Integer::parseInt).toArray())).toArray(int[][]::new);
 		AeroplaneSeatingAlgorithm aeroplaneSeatingAlgorithm = new AeroplaneSeatingAlgorithm();
 		List<int[][]> allSeats = aeroplaneSeatingAlgorithm.doSeatingAlgorithm(givenInput, noOfPassengers);
-		allSeats.stream().forEach(seats -> {
-			for(int i=0;i<seats.length;i++) {
-				for(int j=0;j< seats[i].length;j++) {
-				System.out.print(seats[i][j] +" ");
-				}
-				System.out.print(" ");
-			}
-			System.out.print("   ");
-		});
 		request.setAttribute("allSeats", allSeats);
 		 RequestDispatcher requestDispatcher = request
                  .getRequestDispatcher("/display-seating-arrangement.jsp");
